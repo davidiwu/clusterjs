@@ -51,7 +51,7 @@ const startWorker = async () => {
         await testPromise();
         console.log('generateReports finished.')
         await startWorker();
-    }, 100);
+    }, 1000);
   
 }
 
