@@ -12,7 +12,7 @@ async function testPromise() {
                     resolve(i)
                 } else {
                     console.log(`reject for ${i}`);
-                    resolve(i)
+                    reject(i)
                 }
             }, time)
         })
