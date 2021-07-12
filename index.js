@@ -19,9 +19,9 @@ if(cluster.isMaster) {
         console.log(err);
     })
 
-    // process.on('unhandledRejection', up => { 
-    //     console.log(`process rejection happened, ${up}`);
-    //     throws('error');
-    //  })
+    process.on('unhandledRejection', up => { 
+        console.log(`process rejection happened, ${up}`);
+        // throws('error');
+     })
 
 }

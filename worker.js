@@ -3,7 +3,7 @@ const Bluebird = require("bluebird");
 async function testPromise() {
     let i = 0;
 
-    function sleep(time) {
+    async function sleep(time) {
         return new Promise((resolve, reject)=> {
             setTimeout(() => {
                 i += 1;
@@ -18,13 +18,27 @@ async function testPromise() {
         })
     }
 
+    async function wrapper(time) {
+        try {
+            return await sleep(time);
+        } catch(e) {
+            return null;
+        }
+    }
+
+    async function wrapper2(time) {
+        return await sleep(time).catch(error => {
+            console.log(error);
+        })
+    }
+
 
     const promsies = [];
 
-    promsies.push(sleep(1000));
-    promsies.push(sleep(1000));
-    promsies.push(sleep(1000));
-    promsies.push(sleep(1000));
+    promsies.push(wrapper(1000)); // promsies.push(wrapper2(1000));
+    promsies.push(wrapper(1000));
+    promsies.push(wrapper(1000));
+    promsies.push(wrapper(1000));
 
     async function getResults() {
 
