@@ -1,5 +1,5 @@
 
-const { throws } = require("assert");
+// const { throws } = require("assert");
 const cluster = require('cluster');
 const numCPUs = 2; //require('os').cpus().length;
 
@@ -19,9 +19,8 @@ if(cluster.isMaster) {
         console.log(err);
     })
 
-    process.on('unhandledRejection', up => { 
-        console.log(`process rejection happened, ${up}`);
-        // throws('error');
-     })
+    // process.on('unhandledRejection', up => { 
+    //     console.log(`process rejection happened, ${up}`);
+    //  })
 
 }
