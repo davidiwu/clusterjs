@@ -16,7 +16,7 @@ if(cluster.isMaster) {
 } else {
 
     initApp().catch(err => {
-        console.log(err);
+        console.log(`init app error: ${err}`);
     })
 
     // process.on('unhandledRejection', up => { 

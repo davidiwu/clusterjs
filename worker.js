@@ -22,23 +22,24 @@ async function testPromise() {
         try {
             return await sleep(time);
         } catch(e) {
-            return null;
+            // return null;
+            throw e; // this is a rejection as well
         }
     }
 
     async function wrapper2(time) {
-        return await sleep(time).catch(error => {
-            console.log(error);
+        return await wrapper(time).catch(error => {
+            console.log(`rejection in wrapper2: ${error}`);
         })
     }
 
 
     const promsies = [];
 
-    promsies.push(sleep(1000)); // promsies.push(wrapper2(1000));
-    promsies.push(sleep(1000));
-    promsies.push(sleep(1000));
-    promsies.push(sleep(1000));
+    promsies.push(wrapper2(1000)); // promsies.push(wrapper2(1000));
+    promsies.push(wrapper2(1000));
+    promsies.push(wrapper2(1000));
+    promsies.push(wrapper2(1000));
 
     async function getResults() {
 
