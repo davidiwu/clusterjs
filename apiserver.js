@@ -32,4 +32,4 @@ app.get('/', async (req, res) => {
 })
 
 
-exports.modules = app;
+module.exports = app;
