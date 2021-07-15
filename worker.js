@@ -33,13 +33,12 @@ async function testPromise() {
         })
     }
 
-
     const promsies = [];
 
-    promsies.push(wrapper2(1000)); // promsies.push(wrapper2(1000));
-    promsies.push(wrapper2(1000));
-    promsies.push(wrapper2(1000));
-    promsies.push(wrapper2(1000));
+    promsies.push(wrapper(1000)); // promsies.push(wrapper2(1000));
+    promsies.push(wrapper(1000));
+    promsies.push(wrapper(1000));
+    promsies.push(wrapper(1000));
 
     async function getResults() {
 
